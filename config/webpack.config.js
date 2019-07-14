@@ -1,5 +1,3 @@
-
-
 const fs = require("fs");
 const isWsl = require("is-wsl");
 const path = require("path");
@@ -399,6 +397,8 @@ module.exports = function(webpackEnv) {
               exclude: cssModuleRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
+                modules: true,
+                localIdentName: "[name]_[local]__[hash:base64:5]",
                 sourceMap: isEnvProduction && shouldUseSourceMap
               }),
               // Don't consider CSS imports dead code even if the
