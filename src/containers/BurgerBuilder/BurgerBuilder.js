@@ -162,7 +162,7 @@ class BurgerBuilder extends Component {
             purchasable={this.state.purchasable}
             ordered={this.purchaseHandler}
             price={this.state.totalPrice}
-            // onClick={this.purchaseContinueHandler}
+            onClick={this.purchaseContinueHandler}
           />
         </Auxiliar>
       );

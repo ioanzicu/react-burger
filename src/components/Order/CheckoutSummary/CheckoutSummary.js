@@ -5,6 +5,7 @@ import Button from '../../UI/Button/Button';
 import classes from './CheckoutSummary.css';
 
 const checkoutSummary = props => {
+  console.log('checkout summary', props);
   return (
     <div className={classes.CheckoutSummary}>
       <div>
@@ -15,7 +16,7 @@ const checkoutSummary = props => {
       <Button btnType="Danger" clicked={props.onCheckoutCancelled}>
         CANCEL
       </Button>
-      <Button btnType="Danger" clicked={props.onCheckoutContinued}>
+      <Button btnType="Success" clicked={props.onCheckoutContinued}>
         CONTINUE
       </Button>
     </div>
