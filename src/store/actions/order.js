@@ -64,11 +64,11 @@ export const fetchOrdersStart = () => {
 }
 
 export const fetchOrders = (token, userId) => {
+  const idToken = localStorage.getItem('token')
+
   return dispatch => {
     dispatch(fetchOrdersStart())
-    const queryParams = `?auth=${
-      token ? token.idToken : ''
-    }&orderBy="userId"&equalTo="${userId}"`
+    const queryParams = `?auth=${idToken}&orderBy="userId"&equalTo="${userId}"`
     axios
       .get('/orders.json' + queryParams)
       .then(res => {
