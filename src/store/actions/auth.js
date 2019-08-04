@@ -17,9 +17,6 @@ export const authSuccess = (token, userId) => {
 }
 
 export const authFail = error => {
-  localStorage.removeItem('token')
-  localStorage.removeItem('expirationDate')
-  localStorage.removeItem('userId')
   return {
     type: actionTypes.AUTH_FAIL,
     error: error
@@ -27,6 +24,9 @@ export const authFail = error => {
 }
 
 export const logout = () => {
+  localStorage.removeItem('token')
+  localStorage.removeItem('expirationDate')
+  localStorage.removeItem('userId')
   return {
     type: actionTypes.AUTH_LOGOUT
   }
