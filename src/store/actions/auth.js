@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 import * as actionTypes from './actionTypes'
+import { apiKey } from '../../apiKey'
 
 export const authStart = () => {
   return {
@@ -49,9 +50,6 @@ export const auth = (email, password, isSignup) => {
       returnSecureToken: true
     }
 
-    // SET API IN DEVELOPMENT MODE
-    const apiKey = process.env.NODE_ENV === 'development' ? '..' : '[API-KEY]'
-
     let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`
     if (!isSignup) {
       url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`
@@ -59,7 +57,6 @@ export const auth = (email, password, isSignup) => {
     axios
       .post(url, authData)
       .then(response => {
-        console.log(response)
         // SET TOKEN ON LOCAL  with build in JS -> localStorage
         const expirationDate = new Date(
           new Date().getTime() + response.data.expiresIn * 1000
