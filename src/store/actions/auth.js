@@ -51,7 +51,7 @@ export const auth = (email, password, isSignup) => {
     let url =
       'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API-KEY]'
     if (!isSignup) {
-      url = // TO FIX AFTER REFRESH ORDERS ARE NOT AVAILABLE
+      url =
         'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API-KEY]'
     }
     axios
